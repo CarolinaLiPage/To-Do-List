@@ -45,7 +45,8 @@ const TodoList = () => {
           key={index}
           style={styles.taskItem}
           onPress={() => handleDeleteTask(index)}>
-          <Text>{task}</Text>
+          <Text style={styles.itemNumber}>{index + 1}</Text>
+          <Text style={styles.itemText}>{task}</Text>
         </TouchableOpacity>
       ))}
     </View>
@@ -87,10 +88,19 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   taskItem: {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: 'lightgray',
     padding: 10,
     borderRadius: 5,
     marginBottom: 10,
+    flexDirection: 'row',
+  },
+  itemNumber: {
+    marginRight: 8,
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  itemText: {
+    fontSize: 16,
   },
 });
 
