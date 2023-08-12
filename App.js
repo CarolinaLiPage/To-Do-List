@@ -1,22 +1,37 @@
-import React from "react";
-import { View, StyleSheet } from "react-native";
-import TodoApp from "./TodoApp";
+import "./App.css";
+import TodoList from "./components/toDoList";
+import RegistarPage from "./components/RegistarPage";
+import { Route, Link, Routes } from "react-router-dom";
+import LogInScreen from "./components/LogInScreen";
 
-const App = () => {
+function App() {
 	return (
-		<View style={styles.container}>
-			<TodoApp />
-		</View>
-	);
-};
+		<div className="App">
+			<nav>
+				<ul>
+					<li>
+						<Link to="/">Sign Up An Account</Link>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<Link to="/LogInScreen">Log In Credentials</Link>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<Link to="/TodoList">Use To Do List</Link>
+					</li>
+				</ul>
+			</nav>
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		justifyContent: "center",
-		alignItems: "center",
-		backgroundColor: "#f0f0f0",
-	},
-});
+			<Routes>
+				<Route path="/" element={<RegistarPage />} />
+				<Route path="/LogInScreen" element={<LogInScreen />} />
+				<Route path="/TodoList" element={<TodoList />} />
+			</Routes>
+		</div>
+	);
+}
 
 export default App;
